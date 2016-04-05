@@ -15,12 +15,12 @@
 	<button id="button" onclick="takePity(this)">Take pity</button>
 </p>
 
-<img src="/images/bears/with_heart.png" id="bear">
+<img src="" id="bear">
 
 <script>
 	/* config */
 
-	var sex = 'female';
+	var sex = 'male';
 
 	var text = {
 		en: {
@@ -47,14 +47,18 @@
 					, 'Ты мой бедный зайчик!'
 				],
 				male: [
-					'Всё будет хорошо'
+					  'Всё будет хорошо'
+					, 'Переживешь!'
 				]
 			}
 		}
 	};
 
 	var bears = {
-		male: [],
+		male: [{
+			url: '/images/beer/beer_mug.png',
+			style: {left: '32px', bottom: '16px'}
+		}],
 		female: [{
 			url: '/images/bears/with_heart.png',
 			style: {left: '16px'}
