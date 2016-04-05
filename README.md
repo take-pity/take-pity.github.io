@@ -6,5 +6,3 @@
 * Add texts
 
 * Make design
-
-* Clear window scope - IIFE

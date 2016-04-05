@@ -21,7 +21,7 @@
 
 <img src="" id="bear">
 
-<script>
+<script>(function() {
 	/* config */
 
 	var text = {
@@ -76,7 +76,7 @@
 	var bear = $id('bear');
 	var currentBear, sex;
 
-	setSex('male');
+	setSex('female');
 
 	var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
 	language = language.split('-')[0];
@@ -88,7 +88,7 @@
 
 	function takePity() {
 		phrase.innerHTML = getRandom(text.answers[sex]) || ':(';
-		if (text.answers[sex].length == 1) hide('button');
+		if (text.answers[sex].length <= 1) hide('button');
 		setBear();
 	}
 
@@ -144,7 +144,11 @@
 		hide(bear);
 		show('button');
 	}
-</script>
+
+	// global actions
+	window.takePity = takePity;
+	window.setSex = setSex;
+})()</script>
 
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
