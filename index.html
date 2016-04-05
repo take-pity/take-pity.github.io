@@ -10,6 +10,10 @@
 </head>
 <body>
 
+<div class="switcher">
+	<span id="male" onclick="setSex('male')"></span>
+	<span id="female" onclick="setSex('female')"></span>
+</div>
 <p id="phrase">&nbsp;</p>
 <p class="button_holder">
 	<button id="button" onclick="takePity(this)">Take pity</button>
@@ -20,11 +24,10 @@
 <script>
 	/* config */
 
-	var sex = 'male';
-
 	var text = {
 		en: {
 			button: 'Complain',
+			switcher: ['male', 'female'],
 			answers: {
 				female: ['You my sweet bunny'],
 				male: ['All will be good, bro']
@@ -32,6 +35,7 @@
 		},
 		uk: {
 			button: 'Пожалітися',
+			switcher: ['чоловік', 'жінка'],
 			answers: {
 				female: [
 					'Ти ж моє бідолашне зайченя'
@@ -41,6 +45,7 @@
 		},
 		ru: {
 			button: 'Пожаловаться',
+			switcher: ['парень', 'девушка'],
 			answers: {
 				female: [
 					  'Ах ты моя бедненькая'
@@ -67,23 +72,25 @@
 
 	/* main */
 
+	var phrase = $id('phrase');
+	var bear = $id('bear');
+	var currentBear, sex;
+
+	setSex('male');
+
 	var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
 	language = language.split('-')[0];
 	text = text[language] || text.en;
 
 	$id('button').innerHTML = text.button;
-
-	var phrase = $id('phrase');
-	var bear = $id('bear');
-	var currentBear;
+	$id('male').innerHTML = text.switcher[0];
+	$id('female').innerHTML = text.switcher[1];
 
 	function takePity() {
-		phrase.innerHTML = getRandom(text.answers[sex]);
+		phrase.innerHTML = getRandom(text.answers[sex]) || ':(';
 		if (text.answers[sex].length == 1) hide('button');
 		setBear();
 	}
-
-	document.body.className = sex;
 
 	/* helpers */
 
@@ -95,12 +102,12 @@
 
 	function hide(el) {
 		if (typeof el === 'string') el = $id(el);
-		el.style.display = 'none';
+		el.style.visibility = 'hidden';
 	}
 
-	function show(el, display) {
+	function show(el) {
 		if (typeof el === 'string') el = $id(el);
-		el.style.display = display || 'block';
+		el.style.visibility = 'visible';
 	}
 
 	function setStyle(el, style, clear) {
@@ -111,6 +118,7 @@
 	/* functional helpers */
 
 	function setBear() {
+		show(bear);
 		if (currentBear) {
 			if (bears[sex].length <= 1) return;
 			setStyle(bear, currentBear.style, 'clear');
@@ -122,6 +130,19 @@
 		bear.src = currentBear.url;
 		bear.className = currentBear.class || '';
 		setStyle(bear, currentBear.style);
+	}
+
+	// start or restart page
+	function setSex(value) {
+		sex = value;
+		$id('male').className = '';
+		$id('female').className = '';
+		$id(sex).className = 'active';
+		document.body.className = sex;
+		phrase.innerHTML = '&nbsp;';
+		currentBear = null;
+		hide(bear);
+		show('button');
 	}
 </script>
 

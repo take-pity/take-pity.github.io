@@ -27,6 +27,23 @@
 	text-align: center;
 }
 
+.switcher {
+	position: absolute;
+	top: 4px;
+	right: 8px;
+	font: normal 12px sans-serif;
+	cursor: pointer;
+}
+
+.switcher span {
+	padding: 3px;
+}
+
+.switcher .active {
+	border: 1px solid white;
+	cursor: default;
+}
+
 /* gender dependent */
 
 body.female {
@@ -47,4 +64,12 @@ body.male {
 
 .male #button:active {
 	background-color: darkblue;
+}
+
+.switcher #male {
+	color: navy;
+}
+
+.switcher #female {
+	color: magenta;
 }

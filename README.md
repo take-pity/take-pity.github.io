@@ -7,6 +7,4 @@
 
 * Make design
 
-* Add male/female switcher
-* If one answer - remove button
-* On change sex restore button
+* Clear window scope - IIFE
