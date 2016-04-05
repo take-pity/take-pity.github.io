@@ -1,7 +1,3 @@
-body {
-	background-color: lightpink;
-}
-
 .bear {
 	display: block;
 	position: absolute;
@@ -23,14 +19,32 @@ body {
 	outline: none;
 }
 
-#button:active {
-	background-color: darkorange;
-}
-
 #phrase {
 	color: white;
 	font-size: 4em;
 	/*line-height: 4em;*/
 	margin-top: 1em;
 	text-align: center;
+}
+
+/* gender dependent */
+
+body.female {
+	background-color: lightpink;
+}
+
+body.male {
+	background-color: lightblue;
+}
+
+.male #button {
+	background-color: blue;
+}
+
+.female #button:active {
+	background-color: darkorange;
+}
+
+.male #button:active {
+	background-color: darkblue;
 }

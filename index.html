@@ -18,25 +18,36 @@
 <img src="/images/bears/with_heart.png" class="bear">
 
 <script>
+	var sex = 'female';
+
 	var text = {
 		en: {
 			button: 'Complain',
-			answers: [
-				'You my sweet bunny'
-			]
+			answers: {
+				female: ['You my sweet bunny'],
+				male: ['All will be good, bro']
+			}
 		},
 		uk: {
 			button: 'Пожалітися',
-			answers: [
-				'Ти ж моє бідолашне зайченя'
-			]
+			answers: {
+				female: [
+					'Ти ж моє бідолашне зайченя'
+				],
+				male: []
+			}
 		},
 		ru: {
 			button: 'Пожаловаться',
-			answers: [
-				  'Ах ты моя бедненькая'
-				, 'Ты мой бедный зайчик!'
-			]
+			answers: {
+				female: [
+					  'Ах ты моя бедненькая'
+					, 'Ты мой бедный зайчик!'
+				],
+				male: [
+					'Всё будет хорошо'
+				]
+			}
 		}
 	};
 
@@ -48,10 +59,12 @@
 
 	var phrase = document.getElementById('phrase');
 	function takePity() {
-		var answer = text.answers[Math.random() * text.answers.length | 0];
+		var answer = text.answers[sex][Math.random() * text.answers[sex].length | 0];
 		console.log(answer, phrase);
 		phrase.innerHTML = answer;
 	}
+
+	document.body.className = sex;
 </script>
 
 <script>

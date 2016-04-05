@@ -7,3 +7,4 @@
 * Make design
 * Random bears
 * Add male/female switcher
+* If one answer - remove button
