@@ -15,9 +15,11 @@
 	<button id="button" onclick="takePity(this)">Take pity</button>
 </p>
 
-<img src="/images/bears/with_heart.png" class="bear">
+<img src="/images/bears/with_heart.png" id="bear">
 
 <script>
+	/* config */
+
 	var sex = 'female';
 
 	var text = {
@@ -51,20 +53,72 @@
 		}
 	};
 
+	var bears = {
+		male: [],
+		female: [{
+			url: '/images/bears/with_heart.png',
+			style: {left: '16px'}
+		}]
+	};
+
+	/* main */
+
 	var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
 	language = language.split('-')[0];
 	text = text[language] || text.en;
 
-	document.getElementById('button').innerHTML = text.button;
+	$id('button').innerHTML = text.button;
 
-	var phrase = document.getElementById('phrase');
+	var phrase = $id('phrase');
+	var bear = $id('bear');
+	var currentBear;
+
 	function takePity() {
-		var answer = text.answers[sex][Math.random() * text.answers[sex].length | 0];
-		console.log(answer, phrase);
-		phrase.innerHTML = answer;
+		phrase.innerHTML = getRandom(text.answers[sex]);
+		if (text.answers[sex].length == 1) hide('button');
+		setBear();
 	}
 
 	document.body.className = sex;
+
+	/* helpers */
+
+	function $id(id) { return document.getElementById(id) }
+
+	function getRandom(array) {
+		return array[Math.random() * array.length | 0]
+	}
+
+	function hide(el) {
+		if (typeof el === 'string') el = $id(el);
+		el.style.display = 'none';
+	}
+
+	function show(el, display) {
+		if (typeof el === 'string') el = $id(el);
+		el.style.display = display || 'block';
+	}
+
+	function setStyle(el, style, clear) {
+		for (var key in style)
+			el.style[key] = clear ? '' : style[key];
+	}
+
+	/* functional helpers */
+
+	function setBear() {
+		if (currentBear) {
+			if (bears[sex].length <= 1) return;
+			setStyle(bear, currentBear.style, 'clear');
+		}
+
+		currentBear = getRandom(bears[sex]);
+		if (!currentBear) return;
+
+		bear.src = currentBear.url;
+		bear.className = currentBear.class || '';
+		setStyle(bear, currentBear.style);
+	}
 </script>
 
 <script>
