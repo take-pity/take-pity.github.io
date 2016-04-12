@@ -44,16 +44,35 @@
 	cursor: default;
 }
 
+body:after {
+	content : "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity : 0.1;
+	z-index: -1;
+}
+
 /* gender dependent */
 
 body.female {
 	background-color: lightpink;
 }
 
+body.female:after {
+	background-image: url("/images/hearts-wallpaper.png");
+}
+
 body.male {
 	background-color: lightblue;
 }
 
+body.male:after {
+	background-image: url("/images/tools-wallpaper.png");
+}
 .male #button {
 	background-color: blue;
 }

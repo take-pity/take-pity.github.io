@@ -4,5 +4,3 @@
 * Add social networks sharing
 * Add meta tags for fb-graph
 * Add texts
-
-* Make design
