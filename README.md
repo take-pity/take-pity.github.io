@@ -71,16 +71,21 @@ ul {
 
 ## The beginning:
 
-One day, I saw a funny tweet, and decided to make it a reality:
+One day, I saw a [funny tweet](https://twitter.com/kashasaltsova/status/342593434042892289), and decided to make it a reality:
 
-![Tweet inspired me](images/original_tweet.jpg)
+![Tweet inspired me](images/original_tweet.png)
 
 > If I were a programmer, I would make female site with 1 "complain" button. You press and appears "You are my poor bunny".
 
----
-
 ### todo
-* Add social networks sharing
-* Add meta tags for fb-graph
-* Add texts
-* Fix styles for mobile
+- [ ] Add social networks sharing
+- [ ] Add meta tags for fb-graph
+- [ ] Add texts
+- [ ] Fix styles for mobile
+- [x] Make design
+- [x] Random bears
+- [x] Add male/female switcher
+- [x] If one answer - remove button
+- [x] On change sex restore button
+- [x] Clear window scope - IIFE
+- [x] Add original tweet
