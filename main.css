@@ -60,6 +60,28 @@ body:after {
 	z-index: -1;
 }
 
+.about {
+	position: absolute;
+	bottom: 4px;
+	right: 16px;
+}
+
+.about .share {
+	text-align: right;
+	vertical-align: middle;
+	color: white;
+	font: bold 0.9em sans-serif;
+}
+
+.about .share img {
+	vertical-align: middle;
+}
+
+.about .readme a {
+	color: grey;
+	font: normal 1em sans-serif;
+}
+
 /* gender dependent */
 
 body.female {

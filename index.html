@@ -7,9 +7,21 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="main.css">
+
+	<meta property="og:url" content="http://take-pity.com/">
+	<meta property="og:site_name" content="Take pity">
+	<meta property="og:description" content="Small place to complain and get consolation">
+	<meta property="og:image" content="">
+	<meta property="fb:app_id" content="566248830220077">
+	<meta property="og:title" content="Take pity">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:locale:alternate" content="ru_RU">
+	<meta property="og:locale:alternate" content="uk_UA">
+	<meta property="og:see_also" content="http://take-pity.com/README">
+	<meta property="og:image" content="http://take-pity.com/images/preview_467x120_a.png"/>
 </head>
 <body>
-
+<!-- PAGE -->
 <div class="switcher">
 	<span id="male" onclick="setSex('male')"></span>
 	<span id="female" onclick="setSex('female')"></span>
@@ -21,6 +33,15 @@
 
 <img src="" id="bear">
 
+<div class="about">
+	<div class="share">
+		<span id="share_call">Share:</span>
+		<img src="/images/share/fb.png" alt="Share on facebook" onclick="share('fb')">
+	</div>
+	<p class="readme"><a href="/README">about this page</a></p>
+</div>
+<!-- PAGE END -->
+
 <script>(function() {
 	/* config */
 
@@ -29,6 +50,8 @@
 			button: 'Complain',
 			secondary: 'Complain again',
 			switcher: ['male', 'female'],
+			locale: 'en_US',
+			share: 'Share:',
 			answers: {
 				female: ['You my sweet bunny'],
 				male: ['All will be good, bro']
@@ -38,6 +61,8 @@
 			button: 'Пожалітися',
 			secondary: 'Пожалітися знову',
 			switcher: ['чоловік', 'жінка'],
+			locale: 'uk_UA',
+			share: 'Поділитися:',
 			answers: {
 				female: [
 					'Ти ж моє бідолашне зайченя'
@@ -49,6 +74,8 @@
 			button: 'Пожаловаться',
 			secondary: 'Пожаловаться ещё раз',
 			switcher: ['парень', 'девушка'],
+			locale: 'ru_RU',
+			share: 'Поделиться:',
 			answers: {
 				female: [
 					  'Ах ты моя бедненькая!'
@@ -89,6 +116,7 @@
 	button.innerHTML = text.button;
 	$id('male').innerHTML = text.switcher[0];
 	$id('female').innerHTML = text.switcher[1];
+	$id('share_call').innerHTML = text.share;
 
 	function complain() {
 		phrase.innerHTML = getRandom(text.answers[sex], phrase.innerHTML) || ':(';
@@ -158,8 +186,31 @@
 	// global actions
 	window.complain = complain;
 	window.setSex = setSex;
+	window.text = text;
 })()</script>
 
+<!-- FB -->
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '566248830220077',
+//			appId      : '566274606884166',
+			xfbml      : false,
+			version    : 'v2.6'
+		});
+	};
+
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/" + text.locale + "/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- FB END -->
+
+<!-- GOOGLE -->
 <script>
 	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -168,6 +219,20 @@
 
 	ga('create', 'UA-75866163-1', 'auto');
 	ga('send', 'pageview');
+</script>
+<!-- GOOGLE END -->
+
+<script>
+	function share(service) {
+		if (!service) service = 'fb';
+
+		if (service == 'fb') {
+			FB.login(function(){
+				// Note: The call will only work if you accept the permission request
+				FB.api('/me/feed', 'post', {message: 'Hello, world!'});
+			}, {scope: 'publish_actions'});
+		}
+	}
 </script>
 </body>
 </html>

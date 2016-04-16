@@ -78,6 +78,9 @@ One day, I saw a [funny tweet](https://twitter.com/kashasaltsova/status/34259343
 > If I were a programmer, I would make female site with 1 "complain" button. You press and appears "You are my poor bunny".
 
 And you know, I had to google this idea before coding. Because a lot of similar sites already made. The best one is [complain.breqwas.net](http://complain.breqwas.net/).
+But, sure, my site is better than the best :)
+
+[Go there!](/)
 
 ### todo
 * Add social networks sharing
