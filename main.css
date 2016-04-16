@@ -12,11 +12,15 @@
 #button {
 	border-radius: 6px;
 	background-color: orange;
-	font: normal 20px sans-serif;
+	font: normal 2em sans-serif;
 	color: white;
 	padding: 10px 16px;
 	border: 1px darkorange;
 	outline: none;
+}
+
+#button.secondary {
+	font-size: 1.2em;
 }
 
 #phrase {

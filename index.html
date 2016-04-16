@@ -16,7 +16,7 @@
 </div>
 <p id="phrase">&nbsp;</p>
 <p class="button_holder">
-	<button id="button" onclick="takePity(this)">Take pity</button>
+	<button id="button" onclick="complain(this)">Complain</button>
 </p>
 
 <img src="" id="bear">
@@ -27,6 +27,7 @@
 	var text = {
 		en: {
 			button: 'Complain',
+			secondary: 'Complain again',
 			switcher: ['male', 'female'],
 			answers: {
 				female: ['You my sweet bunny'],
@@ -35,6 +36,7 @@
 		},
 		uk: {
 			button: 'Пожалітися',
+			secondary: 'Пожалітися знову',
 			switcher: ['чоловік', 'жінка'],
 			answers: {
 				female: [
@@ -45,10 +47,11 @@
 		},
 		ru: {
 			button: 'Пожаловаться',
+			secondary: 'Пожаловаться ещё раз',
 			switcher: ['парень', 'девушка'],
 			answers: {
 				female: [
-					  'Ах ты моя бедненькая'
+					  'Ах ты моя бедненькая!'
 					, 'Ты мой бедный зайчик!'
 				],
 				male: [
@@ -74,6 +77,7 @@
 
 	var phrase = $id('phrase');
 	var bear = $id('bear');
+	var button = $id('button');
 	var currentBear, sex;
 
 	setSex('female');
@@ -82,13 +86,17 @@
 	language = language.split('-')[0];
 	text = text[language] || text.en;
 
-	$id('button').innerHTML = text.button;
+	button.innerHTML = text.button;
 	$id('male').innerHTML = text.switcher[0];
 	$id('female').innerHTML = text.switcher[1];
 
-	function takePity() {
-		phrase.innerHTML = getRandom(text.answers[sex]) || ':(';
-		if (text.answers[sex].length <= 1) hide('button');
+	function complain() {
+		phrase.innerHTML = getRandom(text.answers[sex], phrase.innerHTML) || ':(';
+		if (text.answers[sex].length <= 1) hide(button);
+		else {
+			button.className = 'secondary';
+			button.innerHTML = text.secondary;
+		}
 		setBear();
 	}
 
@@ -96,8 +104,12 @@
 
 	function $id(id) { return document.getElementById(id) }
 
-	function getRandom(array) {
-		return array[Math.random() * array.length | 0]
+	function getRandom(array, current) {
+		var result;
+		do {
+			result = array[Math.random() * array.length | 0]
+		} while (array.length > 1 && result == current);
+		return result;
 	}
 
 	function hide(el) {
@@ -138,11 +150,13 @@
 		document.body.className = sex;
 		phrase.innerHTML = '&nbsp;';
 		hide(bear);
-		show('button');
+		show(button);
+		button.className = '';
+		button.innerHTML = text.button;
 	}
 
 	// global actions
-	window.takePity = takePity;
+	window.complain = complain;
 	window.setSex = setSex;
 })()</script>
 

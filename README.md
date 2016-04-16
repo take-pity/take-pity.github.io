@@ -1,9 +1,9 @@
 ---
 title: Document Center
 ---
-<style><!--
+<style>
 body {
-    font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font: 13px / 1.4 Helvetica, arial, freesans, clean, sans-serif;
     color: #333;
     background-color: #fff;
     font-size: 16px;
@@ -65,7 +65,7 @@ hr {
 ul {
     padding-left: 2em;
 }
---></style>
+</style>
 
 # Small place to complain and get consolation
 
@@ -85,3 +85,4 @@ And you know, I had to google this idea before coding. Because a lot of similar 
 * Add texts
 * Fix styles for mobile
 * Add noscript support
+* Fix bear changing
