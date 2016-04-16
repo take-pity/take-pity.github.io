@@ -1,3 +1,7 @@
+---
+title: Document Center
+---
+
 # take-pity.github.io
 
 ### todo
