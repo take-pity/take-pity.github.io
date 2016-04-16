@@ -1,7 +1,7 @@
 ---
 title: Document Center
 ---
-<style>
+<style><!--
 body {
     font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     color: #333;
@@ -65,7 +65,7 @@ hr {
 ul {
     padding-left: 2em;
 }
-</style>
+--></style>
 
 # Small place to complain and get consolation
 
@@ -84,3 +84,4 @@ And you know, I had to google this idea before coding. Because a lot of similar 
 * Add meta tags for fb-graph
 * Add texts
 * Fix styles for mobile
+* Add noscript support
