@@ -4,3 +4,5 @@
 * Add social networks sharing
 * Add meta tags for fb-graph
 * Add texts
+* Fix styles for mobile
+* Add original tweet (and about page - readme?)
