@@ -82,10 +82,50 @@ But, sure, my site is better than the best :)
 
 [Go there!](/)
 
-### todo
-* Add social networks sharing
-* Add texts
-* Fix styles for mobile
-* Add noscript support
-* Fix bear image changing
-* Add lang to location.hash
+## Privacy Policy
+
+### English
+
+Hi. In this site we should describe some policy about your private information.
+The main — we don't collect any your private information.
+Except that, that you provide to social network manually, by sharing a link or posting a comments.
+And also except your visit statistic provided by google analytics.
+But in any way, we collect this statistics not to sale, share or any other bad things. We only want to know, that we are popular! ;)
+
+If you have a question, please contact us by [e-mail](mailto:take-pity@Liksu.kiev.ua) or via our [github](https://github.com/take-pity/take-pity.github.io).
+
+### Українська
+
+Привіт. На цьому сайті є правила щодо вашої приватної інформації.
+Головне — ми не збіраємо жодної приватної інформацій про вас.
+Окрім тієї, що отримуємо через соціальні мережи, коли ви власноруч поширюєте посилання на наш сайт, або коментуєте його.
+Також, ми збираємо анонімну статистику відвідування нашого сайту, що надає нам google analytics.
+У будь-якому випадку, ми збираємо цю статистику не для продажу, розповсюдження, або ще чогось поганого. Тільки-но для того, щоб почувати себе популярними ;)
+
+Якщо у вас виникли питання, напишіть нам на [електронну адресу](mailto:take-pity@Liksu.kiev.ua) або завітайте до сторінки проекту на [github](https://github.com/take-pity/take-pity.github.io).
+
+### Русский
+
+Привет. На этом сайте есть пара правил касающихся вашей частной информации.
+Главное — мы не собираем никакой приватной информаций о вас.
+Кроме той, которую получаем через социальные сети, когда вы собственноручно делитесь ссылкой на наш сайт или комментируете его.
+Также, мы собираем анонимную статистику посещения нашего сайта, предоставленную нам google analytics.
+В любом случае, мы собираем эту статистику не для продажи, распространения или еще чего-то плохого. Только для того, чтобы чувствовать себя популярными ;)
+
+Если у вас возникли вопросы, напишите нам на [электронный адрес](mailto:take-pity@Liksu.kiev.ua) или посетите страницу проекта на [github](https://github.com/take-pity/take-pity.github.io).
+
+# ;)
+
+<p style="text-align: right">© 2016</p>
+
+<!-- GOOGLE -->
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-75866163-1', 'auto');
+	ga('send', 'pageview');
+</script>
+<!-- GOOGLE END -->
