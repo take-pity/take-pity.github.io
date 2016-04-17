@@ -1,3 +1,6 @@
+---
+title: Document Center
+---
 ### todo
 * Add social networks sharing
 * Add texts
