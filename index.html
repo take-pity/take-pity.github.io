@@ -17,7 +17,7 @@
 	<meta property="og:locale:alternate" content="ru_RU">
 	<meta property="og:locale:alternate" content="uk_UA">
 	<meta property="og:see_also" content="http://take-pity.com/README">
-	<meta property="og:image" content="http://take-pity.com/images/share/preview_467x200_a.png">
+	<meta property="og:image" content="http://take-pity.com/images/share/preview_200x200_a.png">
 </head>
 <body>
 <!-- PAGE -->
@@ -193,7 +193,6 @@
 	window.fbAsyncInit = function() {
 		FB.init({
 			appId      : '566248830220077',
-//			appId      : '566274606884166',
 			xfbml      : false,
 			version    : 'v2.6'
 		});
@@ -222,13 +221,15 @@
 <!-- GOOGLE END -->
 
 <script>
+	var url = 'http://take-pity.com';
+
 	function share(service) {
 		if (!service) service = 'fb';
 
 		if (service == 'fb') {
 			FB.ui({
 				method: 'share',
-				href: 'http://take-pity.com'
+				href: url
 			}, function(response){});
 		}
 	}
