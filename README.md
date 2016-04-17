@@ -87,4 +87,5 @@ But, sure, my site is better than the best :)
 * Add texts
 * Fix styles for mobile
 * Add noscript support
-* Fix bear changing
+* Fix bear image changing
+* Add lang to location.hash

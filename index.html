@@ -27,7 +27,7 @@
 </div>
 <p id="phrase">&nbsp;</p>
 <p class="button_holder">
-	<button id="button" onclick="complain(this)">Complain</button>
+	<button id="button" onclick="complain()">Complain</button>
 </p>
 
 <img src="" id="bear">
@@ -115,28 +115,37 @@
 	$id('female').innerHTML = text.switcher[1];
 	$id('share_call').innerHTML = text.share;
 
-	setSex('female');
+	var hash = location.hash.replace('#', '').split(':');
+	if (['male', 'female'].indexOf(hash[0]) === -1) hash[0] = 'female';
 
-	function complain() {
-		phrase.innerHTML = getRandom(text.answers[sex], phrase.innerHTML) || ':(';
+	setSex(hash[0]);
+
+	if (hash[1] && !isNaN(+hash[1])) complain(+hash[1]);
+
+	function complain(number) {
+		if (number === undefined) number = getRandom(text.answers[sex], phrase.innerHTML, true);
+		phrase.innerHTML = text.answers[sex][number] || ':(';
+
 		if (text.answers[sex].length <= 1) hide(button);
 		else {
 			button.className = 'secondary';
 			button.innerHTML = text.secondary;
 		}
 		setBear();
+
+		location.hash = sex + ':' + number;
 	}
 
 	/* helpers */
 
 	function $id(id) { return document.getElementById(id) }
 
-	function getRandom(array, current) {
-		var result;
+	function getRandom(array, current, number) {
+		var result, stop = 7;
 		do {
-			result = array[Math.random() * array.length | 0]
-		} while (array.length > 1 && result == current);
-		return result;
+			result = Math.random() * array.length | 0;
+		} while (array.length > 1 && array[result] == current && stop--);
+		return number ? result : array[result];
 	}
 
 	function hide(el) {
@@ -180,6 +189,7 @@
 		show(button);
 		button.className = '';
 		button.innerHTML = text.button;
+		location.hash = sex;
 	}
 
 	// global actions
