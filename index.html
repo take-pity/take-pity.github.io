@@ -106,8 +106,6 @@
 	var button = $id('button');
 	var currentBear, sex;
 
-	setSex('female');
-
 	var language = navigator.languages ? navigator.languages[0] : (navigator.language || navigator.userLanguage);
 	language = language.split('-')[0];
 	text = text[language] || text.en;
@@ -116,6 +114,8 @@
 	$id('male').innerHTML = text.switcher[0];
 	$id('female').innerHTML = text.switcher[1];
 	$id('share_call').innerHTML = text.share;
+
+	setSex('female');
 
 	function complain() {
 		phrase.innerHTML = getRandom(text.answers[sex], phrase.innerHTML) || ':(';

@@ -84,7 +84,6 @@ But, sure, my site is better than the best :)
 
 ### todo
 * Add social networks sharing
-* Add meta tags for fb-graph
 * Add texts
 * Fix styles for mobile
 * Add noscript support
