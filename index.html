@@ -51,6 +51,7 @@
 			switcher: ['male', 'female'],
 			locale: 'en_US',
 			share: 'Share:',
+			description: 'Everyone can find here some consolation ;)',
 			answers: {
 				female: ['You my sweet bunny'],
 				male: ['All will be good, bro']
@@ -62,6 +63,7 @@
 			switcher: ['чоловік', 'жінка'],
 			locale: 'uk_UA',
 			share: 'Поділитися:',
+			description: 'Будь хто знайде тут собі розраду ;)',
 			answers: {
 				female: [
 					'Ти ж моє бідолашне зайченя'
@@ -75,6 +77,7 @@
 			switcher: ['парень', 'девушка'],
 			locale: 'ru_RU',
 			share: 'Поделиться:',
+			description: 'Всякий найдет себе тут утешение ;)',
 			answers: {
 				female: [
 					  'Ах ты моя бедненькая!'
@@ -238,8 +241,9 @@
 
 		if (service == 'fb') {
 			FB.ui({
-				method: 'share',
-				href: url
+				method: 'feed',
+				link: url,
+				caption: text.description
 			}, function(response){});
 		}
 	}
