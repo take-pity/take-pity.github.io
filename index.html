@@ -226,10 +226,10 @@
 		if (!service) service = 'fb';
 
 		if (service == 'fb') {
-			FB.login(function(){
-				// Note: The call will only work if you accept the permission request
-				FB.api('/me/feed', 'post', {message: 'Hello, world!'});
-			}, {scope: 'publish_actions'});
+			FB.ui({
+				method: 'share',
+				href: 'http://take-pity.com'
+			}, function(response){});
 		}
 	}
 </script>
